@@ -9,11 +9,12 @@ public interface BookingService {
 
     public void deleteBooking(long booking_id);
 
-    public void deleteAllBookingsById(long booking_id);
-
     public List<Bus> getBusByPreference(String source, String destination);
 
     public ResponseEntity<String> doBooking(long cust_id, LocalDate date, long bus_id, String seats);
 
 
 }
+
+
+

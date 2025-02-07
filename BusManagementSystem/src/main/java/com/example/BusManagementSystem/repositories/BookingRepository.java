@@ -21,9 +21,7 @@ public interface BookingRepository extends JpaRepository<Booking, Long> {
                                                     @Param("date") LocalDate date);
 
 
-    public void deleteAllById(Long bookingId);
+    public void deleteAllById(Long cust_id);
 
 }
-
-
 

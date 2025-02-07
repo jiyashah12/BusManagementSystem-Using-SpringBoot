@@ -2,6 +2,8 @@ package com.example.BusManagementSystem.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+
 import java.util.List;
 
 @Entity
@@ -13,15 +15,18 @@ public class Bus {
     @Column
     private long busId;
 
+    @NotBlank(message = "Bus Number can't be blank.")
     @Column
     private String bus_number;
 
     @Enumerated(EnumType.STRING)
     private BusType type;
 
+    @NotBlank(message = "Capacity of bus can't be min. Please add minimum 1 seat.")
     @Column
     private String capacity;
 
+    @NotBlank(message = "Operator can't be blank.")
     @Column
     private String operator;
 

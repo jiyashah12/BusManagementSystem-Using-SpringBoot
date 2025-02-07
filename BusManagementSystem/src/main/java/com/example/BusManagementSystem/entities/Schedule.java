@@ -2,6 +2,8 @@ package com.example.BusManagementSystem.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+
 import java.util.List;
 
 @Entity
@@ -12,9 +14,11 @@ public class Schedule {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    @NotBlank
     @Column
     private String arrivalTime;
 
+    @NotBlank
     @Column
     private String departureTime;
 
@@ -54,5 +58,4 @@ public class Schedule {
         this.buses = buses;
     }
 }
-
 

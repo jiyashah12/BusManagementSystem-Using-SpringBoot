@@ -17,13 +17,8 @@ public class ScheduleController {
 
     @PostMapping("/addschedule")
     public ResponseEntity<String> addSchedule(@RequestBody Schedule schedule) {
-        try {
             scheduleService.addSchedule(schedule);
             return ResponseEntity.ok("Schedule added successfully.");
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-            return ResponseEntity.status(500).body("Error adding schedule.");
-        }
     }
 
     @GetMapping("/getallschedules")

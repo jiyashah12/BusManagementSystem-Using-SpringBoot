@@ -24,7 +24,7 @@ public class Customer {
     @Column
     private String email;
 
-    @Pattern(regexp = "^[6-9]{1}[0-9]{9}$")
+    @Pattern(regexp = "^[6-9]{1}[0-9]{9}$", message = "Phone number must be a valid 10-digit number starting with 6-9.")
     @NotEmpty(message = "Must not be Empty and NULL")
     @Column
     private String phone;

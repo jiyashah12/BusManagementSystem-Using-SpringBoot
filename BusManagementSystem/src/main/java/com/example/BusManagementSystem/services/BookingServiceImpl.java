@@ -40,14 +40,6 @@ public class BookingServiceImpl implements BookingService {
         bookingRepository.deleteById(booking_id);
     }
 
-    @Override
-    public void deleteAllBookingsById(long booking_id) {
-        if (bookingRepository.existsById(booking_id)) {
-            bookingRepository.deleteAllById(booking_id);
-        } else {
-            throw new ResourceNotFoundException("Booking not found.");
-        }
-    }
 
     @Override
     public List<Bus> getBusByPreference(String source, String destination) {
@@ -59,6 +51,8 @@ public class BookingServiceImpl implements BookingService {
         return busList;
     }
 
+
+    @Override
     public ResponseEntity<String> doBooking(long cust_id, LocalDate date, long bus_id, String seats) {
         if (Integer.parseInt(seats) < 1) {
             return ResponseEntity.badRequest().body("Minimum 1 seat required to book.");

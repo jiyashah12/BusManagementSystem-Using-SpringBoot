@@ -2,6 +2,7 @@ package com.example.BusManagementSystem.controllers;
 
 import com.example.BusManagementSystem.entities.Route;
 import com.example.BusManagementSystem.services.RouteService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,14 +17,9 @@ public class RouteController {
     private RouteService routeService;
 
     @PostMapping("/addroute")
-    public ResponseEntity<String> addRoute(@RequestBody Route route) {
-        try {
+    public ResponseEntity<String> addRoute(@Valid @RequestBody Route route) {
             routeService.addRoute(route);
             return ResponseEntity.ok("Route added successfully.");
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-            return ResponseEntity.status(500).body("Error adding route.");
-        }
     }
 
     @GetMapping("/getallroutes")
